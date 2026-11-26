@@ -214,76 +214,95 @@ fetch('data.json')
 
       // 1. 构建图片区域（适配 images 数组多张图）
       let imgHtml = '';
-// 渲染图片
-if (item.images && Array.isArray(item.images) && item.images.length > 0) {
-    imgHtml += `<div class="img-group">`;
-    item.images.forEach(src=>{
-        imgHtml += `
-            <img src="${src}" 
-                 alt="布施动态" 
+      if (item.images && Array.isArray(item.images) && item.images.length > 0) {
+        imgHtml += `<div class="img-group">`;
+        item.images.forEach(src => {
+          imgHtml += `
+            <img src="${src}"
+                 alt="布施动态"
                  onerror="this.onerror=null; this.src='${FALLBACK_IMG}';">
-        `;
-    })
-    imgHtml += `</div>`;
-}
-// 渲染PDF附件下载
-if (item.files && Array.isArray(item.files) && item.files.length > 0) {
-    imgHtml += `<div style="margin-top:15px; padding:10px; background:#f7f7f7; border-radius:8px;">`;
-    item.files.forEach(file=>{
-        imgHtml += `
+          `;
+        });
+        imgHtml += `</div>`;
+      }
+
+      // 渲染 PDF 附件下载
+      if (item.files && Array.isArray(item.files) && item.files.length > 0) {
+        imgHtml += `<div style="margin-top:15px; padding:10px; background:#f7f7f7; border-radius:8px;">`;
+        item.files.forEach(file => {
+          imgHtml += `
             <a href="${file.path}" target="_blank" style="display:block; padding:6px 0; color:#b8860b; text-decoration:none;">
                 📄 ${file.name}
             </a>
-        `;
-    })
-    imgHtml += `</div>`;
-}
+          `;
+        });
+        imgHtml += `</div>`;
+      }
 
+      // 2. 表格行：有字段才渲染，避免出现 undefined
+      let tableRows = '';
+      if (item.item) {
+        tableRows += `
+          <tr>
+            <td style="padding:10px; color:#666; width:80px;">❂布施供养项目</td>
+            <td style="padding:10px; font-weight:bold; color:#333;">${item.item}</td>
+          </tr>`;
+      }
+      if (item.time) {
+        tableRows += `
+          <tr>
+            <td style="padding:10px; color:#666; width:80px;">⏰ 布施供养时间</td>
+            <td style="padding:10px; font-weight:bold; color:#333;">${item.time}</td>
+          </tr>`;
+      }
+      if (item.amount != null) {
+        tableRows += `
+          <tr>
+            <td style="padding:10px; color:#666;">💰 布施供养金额</td>
+            <td style="padding:10px; color:#d9534f; font-weight:bold; font-size:16px;">￥${item.amount}</td>
+          </tr>`;
+      }
+      if (item.count != null) {
+        tableRows += `
+          <tr>
+            <td style="padding:10px; color:#666;">🔢 总共收到笔数</td>
+            <td style="padding:10px; font-weight:bold; color:#333;">${item.count} 笔记账</td>
+          </tr>`;
+      }
 
-      // 2. 构建详情页内容（默认隐藏）
-      const detailsContent = `
-        <div id="${detailId}" style="display:none; margin-top:15px; border-top:1px dashed #eee; padding-top:15px;">
-          ${imgHtml}
+      // 主表格：一行都没有就不输出表格
+      const mainTable = tableRows ? `
+        <table style="width:100%; border-collapse:collapse; font-size:15px; background:#f9f9f9; border-radius:6px; overflow:hidden;">
+          ${tableRows}
+        </table>` : '';
+
+      // 3. 详情摘要：有 summary 才显示
+      let summaryHtml = '';
+      if (item.summary) {
+        summaryHtml = `
           <p style="margin-top:15px; font-size:15px; line-height:1.6; color:#333; background:#fffbe6; padding:10px; border-radius:6px;">
             <strong>📝 详情记录：</strong><br>
             ${item.summary}
-          </p>
-        </div>
-      `;
+          </p>`;
+      }
 
-      // 3. 构建主卡片
+      // 4. 构建详情页内容（默认隐藏）
+      const detailsContent = `
+        <div id="${detailId}" style="display:none; margin-top:15px; border-top:1px dashed #eee; padding-top:15px;">
+          ${imgHtml}
+          ${summaryHtml}
+        </div>`;
+
+      // 5. 构建主卡片
       html += `
         <div class="donation-card" onclick="toggleDetail('${detailId}')">
-          
-          <!-- 头部：点击提示 -->
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
              <span style="font-size:12px; color:#999;">👆 点击此处查看/隐藏图片与详情</span>
              <span style="font-size:12px; color:#1890ff;">▼ 展开详情</span>
           </div>
-
-          <!-- 核心数据表格（始终可见） -->
-          <table style="width:100%; border-collapse:collapse; font-size:15px; background:#f9f9f9; border-radius:6px; overflow:hidden;">
-            <tr>
-              <td style="padding:10px; color:#666; width:80px;">❂布施供养项目</td>
-              <td style="padding:10px; font-weight:bold; color:#333;">${item.item}</td>
-            </tr>
-            <tr>
-              <td style="padding:10px; color:#666; width:80px;">⏰ 布施供养时间</td>
-              <td style="padding:10px; font-weight:bold; color:#333;">${item.time}</td>
-            </tr>
-            <tr>
-              <td style="padding:10px; color:#666;">💰 布施供养金额</td>
-              <td style="padding:10px; color:#d9534f; font-weight:bold; font-size:16px;">￥${item.amount}</td>
-            </tr>
-            <tr>
-              <td style="padding:10px; color:#666;">🔢 总共收到笔数</td>
-              <td style="padding:10px; font-weight:bold; color:#333;">${item.count} 笔记账</td>
-            </tr>
-          </table>
-
+          ${mainTable}
           ${detailsContent}
-        </div>
-      `;
+        </div>`;
     });
 
     document.getElementById('donation-display').innerHTML = html;
