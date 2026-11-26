@@ -8,8 +8,8 @@
       "images/atbeginning2.jpg",
       "images/beginningbed.jpg",
       "images/IMG_20260806_202127.jpg",
-      "images/now1.png",
-        ]
+      "images/now1.png"
+    ]
   },
   {
     "item": "无相布施功德款check",
@@ -21,4 +21,10 @@
       }
     ]
   },
+  {
+    "item": "后续动态",
+    "images": [
+      "images/fallback.jpg"
+    ]
+  }
 ]
