@@ -4,16 +4,16 @@
     "time": "2026-02-01~2026-11-01",
     "summary": "十方能量来，利益十方去",
     "images": [
-      "images/atbeginning.jpg"
-"images/atbeginning2.jpg"
-"images/beginning-bed.jpg"
-"images/IMG_20260806_202127.jpg"
-"images/now1.png"
+      "images/atbeginning.jpg",
+      "images/atbeginning2.jpg",
+      "images/beginning-bed.jpg",
+      "images/IMG_20260806_202127.jpg",
+      "images/now1.png",
       "images/fallback.jpg"
     ]
   },
   {
-  
+    "item": "无相布施功德款check",
     "files": [
       {
         "path": "files/5（打码处理查询）-无相布施功德款明细(1).pdf",
@@ -24,9 +24,8 @@
   },
   {
     "item": "后续记录",
-      "images": [
+    "images": [
       "images/fallback.bmp"
-      
     ]
   }
 ]
