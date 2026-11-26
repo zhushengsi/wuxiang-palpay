@@ -1,46 +1,18 @@
 [
   {
-    "item": "放生功德",
-    "time": "收款日期：2026-11-14~15;放生日期：2026-11-19 上午",
-    "amount": "7749.65",
-    "count": 65,
-    "summary": "放生就是给自己的未来开路，放众生就是放自己",
+    "item": "头陀度假村公益小楼建设动态",
+    "time": "2026-02-01~2026-11-01",
+    "summary": "十方能量来，利益十方去",
     "images": [
-      "images/2fangsheng20261119.png",
-      "images/1-fangsheng20261122162641_84_929.jpg",
-      "images/3-fangsheng20261122162641_84_929.jpg",
-      "images/4-fangsheng20261122162641_84_929.png",
-      "images/5-捐一半东林慈护fangsheng20261122162641_84_929.jpg"
+      "images/atbeginning.jpg"
+"images/atbeginning2.jpg"
+"images/beginning bed jpg"
+"images/IMG_20260806_202127.jpg"
+"images/now1.png"
     ]
   },
   {
-    "item": "供僧斋食",
-    "time": "2026-11-15 11:30",
-    "amount": "8040.89",
-    "count": 58,
-    "summary": "供僧斋食，功德无量，随喜赞叹。",
-    "images": [
-      "images/gong zhai20261116.png"
-    ]
-  },
-  {
-    "item": "悦莲素斋",
-    "time": "收款日期：2026-11-14~15;集体素斋日期：2026-11-15 上午",
-    "amount": "总共收款1988.81￥，实付1265.00￥，转移余款至放生：723.81",
-    "count": 45,
-    "summary": "悦莲素食，也是放生，随喜赞叹。",
-    "images": [
-      "images/东林放生悦莲聚会聚餐20261124005539_1272_4.png",
-      "images/悦莲素食.png"
-    ]
-  },
-  {
-    "item": "布施分类打码查询",
-    "time": "2026-11-20 11:30",
-    "amount": "17779.35",
-    "count": 167,
-    "summary": "无相布施金额分类。",
-    "images": [],
+  
     "files": [
       {
         "path": "files/5（打码处理查询）-无相布施功德款明细(1).pdf",
@@ -51,10 +23,7 @@
   },
   {
     "item": "后续记录",
-    "group_name": "第二组图片",
-    "time": "2026-11-16 09:20",
-    "summary": "后续记录",
-    "images": [
+      "images": [
       "images/img01(4).jpg"
     ]
   }
