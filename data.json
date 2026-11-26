@@ -6,10 +6,10 @@
     "images": [
       "images/atbeginning.jpg"
 "images/atbeginning2.jpg"
-"images/beginning bed jpg"
+"images/beginning-bed.jpg"
 "images/IMG_20260806_202127.jpg"
 "images/now1.png"
-      "images/fallback.bmp"
+      "images/fallback.jpg"
     ]
   },
   {
@@ -25,7 +25,7 @@
   {
     "item": "后续记录",
       "images": [
-      "images/fallback.jpg"
+      "images/fallback.bmp"
       
     ]
   }
